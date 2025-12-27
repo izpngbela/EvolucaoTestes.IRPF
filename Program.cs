@@ -47,11 +47,13 @@ class Program
 
         Console.WriteLine("\nCálculo finalizado.");
     }  
+
+    // formula: desconto = salárioBruto * percentual da alíquota - valor da dedução
     public static decimal CalcularDescontoIRPF(decimal salarioBruto)
     {
         decimal desconto;
 
-        if (salarioBruto <= 1903.98m)
+        if (salarioBruto <= 1903.99m)
             desconto = 0;
         else if (salarioBruto <= 2826.65m)
             desconto = salarioBruto * 0.075m - 142.80m;

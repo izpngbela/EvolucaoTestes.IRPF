@@ -12,3 +12,4 @@ C:\Users\Linguiza\EvolucaoTestes.IRPF\obj\Debug\net8.0\refint\EvolucaoTestes.IRP
 C:\Users\Linguiza\EvolucaoTestes.IRPF\obj\Debug\net8.0\EvolucaoTestes.IRPF.pdb
 C:\Users\Linguiza\EvolucaoTestes.IRPF\obj\Debug\net8.0\EvolucaoTestes.IRPF.genruntimeconfig.cache
 C:\Users\Linguiza\EvolucaoTestes.IRPF\obj\Debug\net8.0\ref\EvolucaoTestes.IRPF.dll
+C:\Users\Linguiza\EvolucaoTestes.IRPF\obj\Debug\net8.0\EvolucaoTestes.IRPF.sourcelink.json
