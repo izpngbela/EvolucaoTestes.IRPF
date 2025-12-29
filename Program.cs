@@ -27,6 +27,7 @@ class Program
             Console.Write("Salário Bruto: ");
             string salarioInput = Console.ReadLine();
 
+            // Valida se o salário digitado é um número decimal válido e positivo; se não for, exibe erro e repete a entrada
             if (!decimal.TryParse(salarioInput, out decimal salarioBruto) || salarioBruto < 0)
             {
                 Console.WriteLine("Valor inválido. O salário deve ser positivo.");
@@ -46,27 +47,7 @@ class Program
         }
 
         Console.WriteLine("\nCálculo finalizado.");
+        Console.ReadLine();
     }  
 
-    // formula: desconto = salárioBruto * percentual da alíquota - valor da dedução
-    public static decimal CalcularDescontoIRPF(decimal salarioBruto)
-    {
-        decimal desconto;
-
-        if (salarioBruto <= 1903.99m)
-            desconto = 0;
-        else if (salarioBruto <= 2826.65m)
-            desconto = salarioBruto * 0.075m - 142.80m;
-        else if (salarioBruto <= 3751.05m)
-            desconto = salarioBruto * 0.15m - 354.80m;
-        else if (salarioBruto <= 4664.68m)
-            desconto = salarioBruto * 0.225m - 636.13m;
-        else
-            desconto = salarioBruto * 0.275m - 869.36m;
-
-        if (desconto < 0)
-            desconto = 0;
-
-        return desconto;
-    }
 }

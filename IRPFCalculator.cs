@@ -2,6 +2,7 @@ namespace EvolucaoTestes.IRPF;
 
 public static class IRPFCalculator
 {
+     // formula: desconto = salárioBruto * percentual da alíquota - valor da dedução
     public static decimal CalcularDesconto(decimal salarioBruto)
     {
         decimal desconto;
