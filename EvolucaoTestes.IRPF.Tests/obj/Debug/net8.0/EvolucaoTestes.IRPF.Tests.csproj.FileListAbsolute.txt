@@ -101,3 +101,4 @@ C:\Users\Linguiza\EvolucaoTestes.IRPF\EvolucaoTestes.IRPF.Tests\obj\Debug\net8.0
 C:\Users\Linguiza\EvolucaoTestes.IRPF\EvolucaoTestes.IRPF.Tests\obj\Debug\net8.0\EvolucaoTestes.IRPF.Tests.pdb
 C:\Users\Linguiza\EvolucaoTestes.IRPF\EvolucaoTestes.IRPF.Tests\obj\Debug\net8.0\EvolucaoTestes.IRPF.Tests.genruntimeconfig.cache
 C:\Users\Linguiza\EvolucaoTestes.IRPF\EvolucaoTestes.IRPF.Tests\obj\Debug\net8.0\ref\EvolucaoTestes.IRPF.Tests.dll
+C:\Users\Linguiza\EvolucaoTestes.IRPF\EvolucaoTestes.IRPF.Tests\obj\Debug\net8.0\EvolucaoTestes.IRPF.Tests.sourcelink.json
