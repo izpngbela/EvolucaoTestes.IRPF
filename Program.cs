@@ -22,9 +22,9 @@ class Program
         }
 
         Console.WriteLine("\nCálculo finalizado.");
-        Console.WriteLine("Quer Continuar? (s/n) ");
-        string resposta = Console.ReadLine();
-        if (resposta.Equals("s", StringComparison.OrdinalIgnoreCase))
+        Console.Write("Quer Continuar? (s/n) ");
+        string? resposta = Console.ReadLine();
+        if (resposta != null && resposta.Equals("s", StringComparison.OrdinalIgnoreCase))
         {
             Main(args); // Reinicia o programa
         }
@@ -35,9 +35,9 @@ class Program
         while (true)
         {
             Console.Write("Informe o número de contribuintes: ");
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
 
-            if (InputValidator.TryParseNumeroContribuintes(input, out int numero))
+            if (input != null && InputValidator.TryParseNumeroContribuintes(input, out int numero))
                 return numero;
 
             Console.WriteLine("Valor inválido. Deve ser um número maior que zero.");
@@ -49,9 +49,9 @@ class Program
         while (true)
         {
             Console.Write("Nome: ");
-            string nome = Console.ReadLine();
+            string? nome = Console.ReadLine();
 
-            if (InputValidator.ValidarNome(nome))
+            if (nome != null && InputValidator.ValidarNome(nome))
                 return nome;
 
             Console.WriteLine("Nome inválido. Digite um nome válido.");
@@ -63,9 +63,9 @@ class Program
         while (true)
         {
             Console.Write("Salário Bruto: ");
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
 
-            if (InputValidator.TryParseSalario(input, out decimal salario))
+            if (input != null && InputValidator.TryParseSalario(input, out decimal salario))
                 return salario;
 
             Console.WriteLine("Valor inválido. O salário deve ser positivo.");
