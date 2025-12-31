@@ -8,46 +8,77 @@ class Program
         Console.WriteLine("Bem-vindo ao sistema de cálculo de IRPF!");
         Console.WriteLine();
 
-        Console.Write("Informe o número de contribuintes: ");
-        string input = Console.ReadLine();
-
-        if (!int.TryParse(input, out int numContribuintes) || numContribuintes <= 0)
-        {
-            Console.WriteLine("Valor inválido. Deve ser um número maior que zero.");
-            return;
-        }
+        int numContribuintes = ObterNumeroContribuintes();
 
         for (int i = 1; i <= numContribuintes; i++)
         {
             Console.WriteLine($"\nContribuinte {i}:");
 
-            Console.Write("Nome: ");
-            string nome = Console.ReadLine();
+            string nome = ObterNome();
+            decimal salarioBruto = ObterSalarioBruto();
 
-            Console.Write("Salário Bruto: ");
-            string salarioInput = Console.ReadLine();
-
-            // Valida se o salário digitado é um número decimal válido e positivo; se não for, exibe erro e repete a entrada
-            if (!decimal.TryParse(salarioInput, out decimal salarioBruto) || salarioBruto < 0)
-            {
-                Console.WriteLine("Valor inválido. O salário deve ser positivo.");
-                i--;
-                continue;
-            }
-
-            decimal desconto = IRPFCalculator.CalcularDesconto(salarioBruto);
-            decimal salarioLiquido = salarioBruto - desconto;
-
-            Console.WriteLine("\n--- Resultado ---");
-            Console.WriteLine($"Contribuinte: {nome}");
-            Console.WriteLine($"Salário Bruto: {salarioBruto:C}");
-            Console.WriteLine($"Desconto IRPF: {desconto:C}");
-            Console.WriteLine($"Salário Líquido: {salarioLiquido:C}");
-            Console.WriteLine("---------------------------");
+            var contribuinte = new Contribuinte(nome, salarioBruto);
+            ExibirResultado(contribuinte);
         }
 
         Console.WriteLine("\nCálculo finalizado.");
-        Console.ReadLine();
-    }  
+        Console.WriteLine("Quer Continuar? (s/n) ");
+        string resposta = Console.ReadLine();
+        if (resposta.Equals("s", StringComparison.OrdinalIgnoreCase))
+        {
+            Main(args); // Reinicia o programa
+        }
+    }
 
+    private static int ObterNumeroContribuintes()
+    {
+        while (true)
+        {
+            Console.Write("Informe o número de contribuintes: ");
+            string input = Console.ReadLine();
+
+            if (InputValidator.TryParseNumeroContribuintes(input, out int numero))
+                return numero;
+
+            Console.WriteLine("Valor inválido. Deve ser um número maior que zero.");
+        }
+    }
+
+    private static string ObterNome()
+    {
+        while (true)
+        {
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+
+            if (InputValidator.ValidarNome(nome))
+                return nome;
+
+            Console.WriteLine("Nome inválido. Digite um nome válido.");
+        }
+    }
+
+    private static decimal ObterSalarioBruto()
+    {
+        while (true)
+        {
+            Console.Write("Salário Bruto: ");
+            string input = Console.ReadLine();
+
+            if (InputValidator.TryParseSalario(input, out decimal salario))
+                return salario;
+
+            Console.WriteLine("Valor inválido. O salário deve ser positivo.");
+        }
+    }
+
+    private static void ExibirResultado(Contribuinte contribuinte)
+    {
+        Console.WriteLine("\n--- Resultado ---");
+        Console.WriteLine($"Contribuinte: {contribuinte.Nome}");
+        Console.WriteLine($"Salário Bruto: {contribuinte.SalarioBruto:C}");
+        Console.WriteLine($"Desconto IRPF: {contribuinte.Desconto:C}");
+        Console.WriteLine($"Salário Líquido: {contribuinte.SalarioLiquido:C}");
+        Console.WriteLine("---------------------------");
+    }
 }
