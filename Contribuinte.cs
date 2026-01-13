@@ -4,6 +4,7 @@ public class Contribuinte
 {
     public string Nome { get; set; }
     public decimal SalarioBruto { get; set; }
+    public decimal DescontoINSS { get; private set; }
     public decimal Desconto { get; private set; }
     public decimal SalarioLiquido { get; private set; }
 
@@ -16,7 +17,8 @@ public class Contribuinte
 
     private void CalcularImposto()
     {
+        DescontoINSS = INSSCalculator.CalcularINSS(SalarioBruto);
         Desconto = IRPFCalculator.CalcularDesconto(SalarioBruto);
-        SalarioLiquido = SalarioBruto - Desconto;
+        SalarioLiquido = SalarioBruto - DescontoINSS - Desconto;
     }
 }
