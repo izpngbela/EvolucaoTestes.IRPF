@@ -77,6 +77,7 @@ class Program
         Console.WriteLine("\n--- Resultado ---");
         Console.WriteLine($"Contribuinte: {contribuinte.Nome}");
         Console.WriteLine($"Salário Bruto: {contribuinte.SalarioBruto:C}");
+        Console.WriteLine($"Desconto INSS: {contribuinte.DescontoINSS:C}");
         Console.WriteLine($"Desconto IRPF: {contribuinte.Desconto:C}");
         Console.WriteLine($"Salário Líquido: {contribuinte.SalarioLiquido:C}");
         Console.WriteLine("---------------------------");
